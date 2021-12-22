@@ -3,18 +3,18 @@ module "ec2-instance" {
   version = "3.3.0"
 
   name                          = var.ec2_name
-  associate_public_ip_address   = true
-  availability_zone             = "ap-southeast-1a"
-  ami                    = "ami-07315f74f3fa6a5a3"
-  instance_type          = "t2.micro"
-  key_name               = "adam1"
-  monitoring             = true
-  vpc_security_group_ids = ["sg-0f955370765317f4e"]
-  subnet_id              = "subnet-07a2296ef5d5b8984"
+  associate_public_ip_address   = var.associate_public_ip_address
+  availability_zone             = var.availability_zone
+  ami                    = var.ami
+  instance_type          = var.instance_type 
+  key_name               = var.key_name
+  monitoring             = var.monitoring
+  vpc_security_group_ids = var.vpc_security_group_ids
+  subnet_id              = var.subnet_id
 
   tags = {
-    Terraform   = "true"
-    Environment = "dev"
-    CreatedBy   = "adam"
+    Terraform   = var.tags["Terraform"]
+    Environment = var.tags["Environment"]
+    CreatedBy   = var.tags["CreatedBy"]
   }
 }
