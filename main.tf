@@ -8,6 +8,5 @@ terraform {
 }
 
 provider "aws" {
-  # Configuration options
-  region = "ap-southeast-2" # Sydney
+  region = var.region
 }
