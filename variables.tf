@@ -4,8 +4,19 @@ variable "region" {
     default = "ap-southeast-1"
 }
 
+variable "associate_public_ip_address" {
+    default = true
+}
+
+variable "availability_zone" {
+    default = "ap-southeast-1a"
+}
 variable "ec2_name" {
     default = "adam-test"
+}
+
+variable "vpc_security_group_ids" {
+    default = ["sg-0f955370765317f4e"]
 }
 
 variable "ami" {
@@ -33,8 +44,10 @@ variable "subnet_id" {
 }
 
 variable "tags" {
-    Terraform   = "true"
-    Environment = "dev"
-    CreatedBy   = "adam"
-  }
+    type = map(string)
+    default = {
+        "Terraform" = "true"
+        "Environment" = "dev"
+        "CreatedBy" = "adam"
+    }
 }
