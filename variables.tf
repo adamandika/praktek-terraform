@@ -1,10 +1,10 @@
 # cara pemanggilan => var.NAMA_VAR / var.region
 
 variable "region" {
-    default = "ap-southeast-2"
+    default = "ap-southeast-1"
 }
 
 variable "ec2_name" {
-    default = "instance-test"
+    default = "adam-test"
 }
 
